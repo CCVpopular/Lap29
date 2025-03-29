@@ -73,7 +73,7 @@ module.exports = {
             options.password.minNumbers,
             options.password.minSymbols)),
         body("email").isEmail().withMessage(constants.VALIDATOR_ERROR_EMAIL),
-        body("role").not().isEmpty().withMessage("Role không được bỏ trống")
+        body("role").not().isEmpty().withMessage(constants.VALIDATOR_ERROR_ROLE)
     ],
     
     UpdateUserValidator: [
@@ -81,7 +81,7 @@ module.exports = {
         body("fullname").optional().isString().withMessage("Họ tên phải là chuỗi"),
         body("avatarUrl").optional().isURL().withMessage("Avatar phải là URL hợp lệ"),
         body("status").optional().isBoolean().withMessage("Status phải là boolean"),
-        body("role").optional().not().isEmpty().withMessage("Role không được bỏ trống")
+        body("role").optional().not().isEmpty().withMessage(constants.VALIDATOR_ERROR_ROLE)
     ]
 }
 // multer
